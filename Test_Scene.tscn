@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.204643, 0.204603, 0.201641 )
+
+[node name="Scene" type="Node"]
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09041, 0, 0 )
+
+[node name="Route" type="Spatial" parent="Spatial"]
+
+[node name="Position3D3" type="Position3D" parent="Spatial/Route"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80519, 7.15256e-07, -0.188801 )
+
+[node name="Position3D4" type="Position3D" parent="Spatial/Route"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48766, 7.15256e-07, -0.119868 )
+
+[node name="Platforms" type="KinematicBody" parent="Spatial"]
+transform = Transform( 1.51481, 0, 0, 0, 0.260384, 0, 0, 0, 0.68009, -21.6498, 0, -0.862404 )
+
+[node name="CSGBox" type="CSGBox" parent="Spatial/Platforms"]
+transform = Transform( 0.653942, 0, 0, 0, 0.653942, 0, 0, 0, 0.653942, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/Platforms"]
+transform = Transform( 3.18837, 0, 0, 0, 3.18837, 0, 0, 0, 3.18837, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.203, -1.04684 )
+current = true
+
+[node name="Platforms2" type="KinematicBody" parent="."]
+transform = Transform( 0.387425, 0, 0, 0, 6.05901, 0, 0, 0, 11.3468, 1.71421, 0.375566, -1.29202 )
+
+[node name="CSGBox" type="CSGBox" parent="Platforms2"]
+transform = Transform( 0.653942, 0, 0, 0, 0.653942, 0, 0, 0, 0.653942, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platforms2"]
+transform = Transform( 3.18837, 0, 0, 0, 3.18837, 0, 0, 0, 3.18837, 0, 0, 0 )
+shape = SubResource( 1 )
