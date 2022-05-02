@@ -38,7 +38,7 @@ func check_destination_first_last():
 
 func decrease_destination():
 	current_destination_index -= 1
-	target_position = route.get_child(current_destination_index).get_translation()
+	target_position = route.get_child(current_destination_index).global_transform.origin
 
 func change_move_direction():
 	match(current_move_direction):

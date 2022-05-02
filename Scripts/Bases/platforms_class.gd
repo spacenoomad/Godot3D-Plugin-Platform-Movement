@@ -24,7 +24,7 @@ func _ready():
 	config()
 
 func config():
-	platform.transform.origin = route.get_child(0).get_translation()
+	platform.global_transform.origin = route.get_child(0).global_transform.origin
 	last_destination_index = route.get_child_count() - 1
 	increment_destination()
 
@@ -43,7 +43,7 @@ func change_state(target_state):
 	platform_movement_state = target_state
 
 func move_to_target():
-	platform.transform.origin = platform.transform.origin.move_toward(target_position, speed)
+	platform.global_transform.origin = platform.global_transform.origin.move_toward(target_position, speed)
 	platform.move_and_slide(Vector3.ZERO)
 
 
@@ -53,7 +53,7 @@ func increment_movement():
 
 func increment_destination():
 	current_destination_index += 1
-	target_position = route.get_child(current_destination_index).get_translation()
+	target_position = route.get_child(current_destination_index).global_transform.origin
 
 func check_destination_first_last():
 	if current_destination_index == last_destination_index:
@@ -63,7 +63,7 @@ func check_destination_first_last():
 		return false
 
 func check_if_destination_reached():
-	if platform.transform.origin.distance_to(route.get_child(current_destination_index).transform.origin) < 0.1:
+	if platform.global_transform.origin.distance_to(route.get_child(current_destination_index).global_transform.origin) < 0.1:
 		if check_destination_first_last():
 			return false
 		return true
